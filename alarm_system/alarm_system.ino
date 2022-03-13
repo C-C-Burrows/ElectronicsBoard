@@ -24,11 +24,11 @@ void setup()
 // void loop funtion
 
 void loop() {
-IsDistanceSensorActived();
-IsMovementSensorActivated();
-IsButtonTriggerActivated();
+  IsDistanceSensorActived();
+  IsMovementSensorActivated();
+  IsButtonTriggerActivated();
 
-  
+
 
 }
 
@@ -107,19 +107,18 @@ int ReadButton()
   return buttonTrigger;
 }
 
-// this funtion reads then retuns the value as a bool 
+// this funtion reads then retuns the value as a bool
 
 bool IsButtonTriggerActivated()
 {
-int readButton;
-readButton = ReadButton();
-bool buttonActervated;
-buttonActervated = (readButton == 1);
-Serial.print ("Button actervated: ");
-Serial.println(buttonActervated);
-return buttonActervated;
+  int readButton;
+  readButton = ReadButton();
+  bool buttonActervated;
+  buttonActervated = (readButton == 1);
+  Serial.print ("Button actervated: ");
+  Serial.println(buttonActervated);
+  return buttonActervated;
 }
-
 
 void TurnAlarmOn()
 {
