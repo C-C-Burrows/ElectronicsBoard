@@ -26,25 +26,25 @@ void setup()
 
 void loop() {
 
-  int triggerAlarm =0;
-  
-  if(IsDistanceSensorActived()==true)
+  int triggerAlarm = 0;
+
+  if (IsDistanceSensorActived() == true)
   {
     triggerAlarm++;
   }
-  
-  if (IsMovementSensorActivated()==true)
+
+  if (IsMovementSensorActivated() == true)
   {
-   triggerAlarm++;
+    triggerAlarm++;
   }
-  
-  if(IsButtonTriggerActivated()==true)
+
+  if (IsButtonTriggerActivated() == true)
   {
     triggerAlarm++;
   }
 
   DebugSensors();
-  if(triggerAlarm >2)
+  if (triggerAlarm > 2)
   {
     TurnAlarmOn();
   }
@@ -84,11 +84,11 @@ bool IsDistanceSensorActived()
   readDistance = ReadDistance();
   bool distanceActivated;
   distanceActivated = readDistance < 100;
- 
+
   // Has the sensor been activated
   if (distanceActivated)
   {
-    //Set the global variable to be true 
+    //Set the global variable to be true
     //indicating that the sensor has been triggered
     isDistanceSensorTriggerValue = true;
   }
@@ -121,12 +121,12 @@ bool IsMovementSensorActivated()
   // Has the sensor been activated
   if (movementSensorActervated)
   {
-    //Set the global variable to be true 
+    //Set the global variable to be true
     //indicating that the sensor has been triggered
-     isMovementSensorsTriggerValue= true;
+    isMovementSensorsTriggerValue = true;
   }
 
-  
+
   return isMovementSensorsTriggerValue;
 }
 
@@ -151,29 +151,31 @@ bool IsButtonTriggerActivated()
 
   if (buttonActervated == true)
   {
-    
-    isButtonSensorTriggerValue=true;
+
+    isButtonSensorTriggerValue = true;
   }
   return isButtonSensorTriggerValue;
 }
 
 void DebugSensors()
 {
+  Serial.println("*******************");
   Serial.print ("Button Has been Activated: ");
   Serial.println(isButtonSensorTriggerValue);
-   Serial.print ("Movement Has been Activated: ");
+  Serial.print ("Movement Has been Activated: ");
   Serial.println(isMovementSensorsTriggerValue);
-   Serial.print ("Distance Has been Activated: ");
+  Serial.print ("Distance Has been Activated: ");
   Serial.println(isDistanceSensorTriggerValue);
+  Serial.println("*******************");
 
 }
-// turn alram on 
+// turn alram on
 void TurnAlarmOn()
 {
-     digitalWrite(pinAlarm, HIGH);
+  digitalWrite(pinAlarm, HIGH);
 }
 //turn alarm off
- void TurnAlarmOff()
- {
-    digitalWrite(pinAlarm, LOW);
- }
+void TurnAlarmOff()
+{
+  digitalWrite(pinAlarm, LOW);
+}
