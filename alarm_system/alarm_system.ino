@@ -26,8 +26,23 @@ void setup()
 
 void loop() {
 
-  int triggerAlarm = 0;
+  if (HowManyAlarmsHaveBeenTriggered() >= 2)
+  {
+    TurnAlarmOn();
+  }
+  else
+  {
+    TurnAlarmOff();
+  }
 
+  DebugSensors();
+
+}
+
+int HowManyAlarmsHaveBeenTriggered()
+{
+
+  int triggerAlarm = 0;
   if (IsDistanceSensorActived() == true)
   {
     triggerAlarm++;
@@ -42,17 +57,7 @@ void loop() {
   {
     triggerAlarm++;
   }
-
-  DebugSensors();
-  if (triggerAlarm > 2)
-  {
-    TurnAlarmOn();
-  }
-  else
-  {
-    TurnAlarmOff();
-  }
-
+  return triggerAlarm;
 }
 
 // (this is reading the distance and retuning
