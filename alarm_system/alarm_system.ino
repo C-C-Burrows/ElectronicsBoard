@@ -18,6 +18,7 @@ void setup()
   pinMode(echoPin, INPUT); // Sets the echoPin as an INPUT
   pinMode(pinPIR, INPUT); // Sets the trigPin as an OUTPUT
   pinMode(buttonPin, INPUT); // Sets the trigPin as an OUTPUT
+  pinMode(pinAlarm, OUTPUT); // Sets the trigPin as an OUTPUT
   Serial.begin(9600); // // Serial Communication is starting with 9600 of baudrate speed
 
 }
@@ -174,7 +175,7 @@ void DebugSensors()
   Serial.println("*******************");
 
 }
-// turn alram on
+// turn alram on (light)
 void TurnAlarmOn()
 {
   digitalWrite(pinAlarm, HIGH);

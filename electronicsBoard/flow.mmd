@@ -1,0 +1,45 @@
+flowchart TR
+   id1([Start])
+   -->id2[with the button pressed and the bowl already on the mat]
+   -->id3[The DC motor turns on]
+   -->id4{Is the bowl detected by the Cerial Sensor 1}
+   id4-->|no| id3 
+   id5(dealy - 500)
+   id4-->|Yes| id5
+   -->id6[Stop DC motor]
+   -->id7[turn on cerial despenser]
+   -->id8{Is weight 1 detected}
+   id8-->|no| id6
+   id9(turn off servo mtor)
+   id8-->|Yes| id9
+   -->id10[delay - 2000]
+   -->id11[turn on LED GREEN]
+   -->id12[turn on DC motor]
+    -->id13{is the bowl dected by the milk motor}
+   id13-->|no| id12
+   id14(dealy - 500)
+   id13-->|Yes| id14
+   -->id15[Stop DC motor]
+   -->id16[turn on milk despenser]
+   -->id17{Is weight 2 detected}
+   id16-->|no| id17
+   id18(turn off servo mtor)
+   id17-->|Yes| id18
+   -->id19[delay - 2000]
+   -->id20[turn on LED ORANGE]
+   -->id21{Is the bowl sensed by the line}
+   -->id22[turn on DC motor]
+   id21-->|no| id20
+   id21-->|yes|id22
+  -->id23[turn on LED RED]
+   -->id24[Bluetooth your phone a a message]
+   -->id25[set off a buzzer]
+   -->id26(Stop)
+   
+
+ 
+   
+
+
+   
+    
